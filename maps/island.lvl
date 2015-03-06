@@ -17,6 +17,8 @@ Battleship 0 13 27 180
 Bomber 0 27 26 180
 Carrier 0 27 27 0
 Fighter 0 26 27 180
+PTBoat 0 27 17 90
+PTBoat 0 10 27 180
 Anti-Air 1 9 6 0
 Transport 1 11 8 270 70
 Jeep 1 11 9 270
@@ -30,4 +32,6 @@ Battleship 1 18 1 0
 Carrier 1 2 2 180
 Fighter 1 2 3 0
 Bomber 1 3 2 0
+PTBoat 1 21 1 0
+PTBoat 1 2 13 270
 UNITS END
