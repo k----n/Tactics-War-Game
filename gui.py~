@@ -640,6 +640,10 @@ class GUI(LayeredUpdates):
         from_tile_pos = (self.sel_unit.tile_x,
                          self.sel_unit.tile_y)
 
+	for p in base_power.BasePower.active_powers:
+		if p.tile_pos == from_tile_pos:
+			print("works")
+        
         # Play the unit's movement sound
         SoundManager.play(self.sel_unit.move_sound)
         
@@ -684,7 +688,7 @@ class GUI(LayeredUpdates):
         
         # Update units
         base_unit.BaseUnit.active_units.update()
-
+        
         # The unit is finished moving, so go back to select
         if self.mode == Modes.Moving:
             if (not self.sel_unit) or (not self.sel_unit.is_moving):
@@ -695,13 +699,6 @@ class GUI(LayeredUpdates):
         
         # Update effects
         self._effects.update()
-
-        # See if unit moved is on any power ups
-        for p in base_power.BasePower.active_powers:
-            unit = base_unit.BaseUnit.get_unit_at_pos(p.tile_pos)
-            if unit!= None:
-                p.use(unit)
-                p.deactivate()
 
     def draw(self):
         """
@@ -866,6 +863,7 @@ class GUI(LayeredUpdates):
                         line_num)
                     line_num += 1
 
+            
 
             #whether this has moved
             has_moved = self.sel_unit.turn_state[0]
@@ -1016,22 +1014,6 @@ class GUI(LayeredUpdates):
             self.draw_bar_div_line(line_num)
             line_num += 1
 
-        #Get the hovered power up
-        hov_power = powerup.base_power.BasePower.get_power_at_pos(coords)
-        
-        if hov_power:
-            #title for tile section
-            self.draw_bar_title("HOVERED POWER UP", line_num)
-            line_num += 1
-            
-            #type
-            type = hov_power.type
-            self.draw_bar_text("Type: {}".format(type), line_num)
-            line_num += 1
-
-            #divider
-            self.draw_bar_div_line(line_num)
-            line_num += 1
 
 
         for button in self.buttons:

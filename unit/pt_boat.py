@@ -17,7 +17,7 @@ class PTBoat(unit.water_unit.WaterUnit):
         super().__init__(**keywords)
 
         # sounds
-        self.hit_sound = "ArilleryFire"
+        self.hit_sound = "ArtilleryFire"
 
         # set unit specific things
         self.type = "PTBoat"
