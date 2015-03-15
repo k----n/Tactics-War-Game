@@ -1,9 +1,13 @@
-1) Added PT Boat Unit
+PURPOSE
+    This file outlines the changes made from the base eClass Tactics
+    War Game in accordance with assignement #2.
+
+TASK 1) Added PT Boat Unit
    - created unit/pt_boat.py for a PT boat class
    - added 'pt_boat' unit to unit/__init__.py 
    - edited maps/island.lvl to include a couple of PT boat units
 
-2) Added a Power-Up System
+TASK 2) Added a Power-Up System
    - created a powerup folder in main directory
    - created powerup/base_power.py to contain BasePower function
    - created powerup/Health_PUP.py, powerup/Attack_PUP.py,
@@ -37,3 +41,14 @@
        POWER-UPS END
        
        where X,Y are X and Y coordinates for the power up
+
+TASK 3)
+    -only the gather.py was modified
+    -changed the gather function to find the optimal value for
+    a given transporter weight
+    -the function is a recursive function that uses our in-class
+    memoize function decorator and was inspired from an implementation
+    of the knapsack problem (in particular: http://codereview.stackex
+    change.com/questions/20569/dynamic-programming-solution-to-knapsa
+    ck-problem ). Yhe solution is O(C*n) [C=capicity and n = # of
+    units]
