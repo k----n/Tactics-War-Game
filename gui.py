@@ -466,7 +466,7 @@ class GUI(LayeredUpdates):
                 raise Exception ("Expected end of unit definitions")
 
 
-        # variable to keep track if pwoer ups were found in map file
+        # variable to keep track if power ups were found in map file
         power_found = 1
 
         # Move up to the power up definitions
@@ -707,7 +707,7 @@ class GUI(LayeredUpdates):
             unit = base_unit.BaseUnit.get_unit_at_pos(p.tile_pos)
             if unit!= None:
                 p.use(unit)
-                p.deactivate()
+                p.deactivate(unit)
 
     def draw(self):
         """

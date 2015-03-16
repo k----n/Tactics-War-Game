@@ -66,10 +66,13 @@ class BasePower(Sprite):
             self._active = True
             BasePower.active_powers.add(self)
     
-    def deactivate(self):
+    def deactivate(self, unit):
         """
-        Removes this unit from the active roster.
+        Removes this power from the active roster and deactivate unit.
         """
+        unit._moving = False
+
         if self._active:
             self._active = False
             BasePower.active_powers.remove(self)
+        
