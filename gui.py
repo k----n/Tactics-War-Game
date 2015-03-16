@@ -465,36 +465,42 @@ class GUI(LayeredUpdates):
             if line == "":
                 raise Exception ("Expected end of unit definitions")
 
+
+        # variable to keep track if pwoer ups were found in map file
+        power_found = 1
+
         # Move up to the power up definitions
         while line.find("POWER-UPS START") < 0:
             line = map_file.readline()
             if line == "":
-                raise Exception ("Expected power definitions")
+                power_found = 0
+                break # no power ups were found
         line = map_file.readline()
         
-        # Create the powers
-        while line.find("POWER-UPS END") < 0:
-            line = line.rstrip()
-            line = line.split(' ')
-            power_name = line[0]
-            power_x, power_y = int(line[1]), int(line[2])
+        if power_found == 1:
+            # Create the power ups
+            while line.find("POWER-UPS END") < 0:
+                line = line.rstrip()
+                line = line.split(' ')
+                power_name = line[0]
+                power_x, power_y = int(line[1]), int(line[2])
 
-            if len(line) != 3:
-                raise Exception("Invalid definition of " + power_name)
+                if len(line) != 3:
+                    raise Exception("Invalid definition of " + power_name)
+                
+                if not power_name in powerup.power_types:
+                    raise Exception("No power of name {} found!".format(power_name))
 
-            if not power_name in powerup.power_types:
-                raise Exception("No power of name {} found!".format(power_name))
+                new_power = powerup.power_types[power_name](tile_x = power_x,
+                                                        tile_y = power_y,
+                                                        activate = True)
 
-            new_power = powerup.power_types[power_name](tile_x = power_x,
-                                                  tile_y = power_y,
-                                                  activate = True)
-
-            # Add the power to the update group and set its display rect
-            self.update_unit_rect(new_power)
+                # Add the power to the update group and set its display rect
+                self.update_unit_rect(new_power)
             
-            line = map_file.readline()
-            if line == "":
-                raise Exception ("Expected end of power definitions")
+                line = map_file.readline()
+                if line == "":
+                    raise Exception ("Expected end of power definitions")
         
     def on_click(self, e):
         """

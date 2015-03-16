@@ -1,7 +1,6 @@
 import functools
 
-
-# taken from classe notes
+# taken from class notes
 def memoize(bad_f):
     # note we're attaching the memo
     # dictionary to our function
@@ -69,7 +68,7 @@ def gather(transport, unit_list, value):
      is the remaining capacity in the transport. Remember, the capacity
      of a transport and the sizes of the units are all integers.
     """
-
+    
     # the unused capacity of the transport
     remain = transport.capacity
 
