@@ -675,7 +675,7 @@ class GUI(LayeredUpdates):
         
     def update_unit_rect(self, unit):
         """
-        Scales a unit's display rectangle to screen coordiantes.
+        Scales a unit's display rectangle to screen coordinates.
         """
         x, y = unit.tile_x, unit.tile_y
         screen_x, screen_y = self.map.screen_coords((x, y))
@@ -1078,7 +1078,7 @@ class GUI(LayeredUpdates):
             
     def get_button_rect(self, button):
         """
-        Gets the rectangle bounding a button in screen cordinates.
+        Gets the rectangle bounding a button in screen coordinates.
         """
         # The y-coordinate is based on its slot number
         y = self.screen.get_height() - BUTTON_HEIGHT * (button.slot + 1)

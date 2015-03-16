@@ -1,6 +1,6 @@
 PURPOSE
     This file outlines the changes made from the base eClass Tactics
-    War Game in accordance with assignement #2.
+    War Game in accordance with assignment #2.
 
 TASK 1) Added PT Boat Unit
    - created unit/pt_boat.py for a PT boat class
@@ -17,16 +17,16 @@ TASK 2) Added a Power-Up System
        function, and a 'use' function in the subclass to modify unit
        stats according to power up
        - Health_PUP.py modifies unit health and redraws the unit
-       - Speed_PUP.py increases a unit speed by 2
-       - Attack_PUP.py increases a unit's damage ability by 2 except
-         for "Transport" units
+       - Speed_PUP.py increases a unit speed (by default it is 2)
+       - Attack_PUP.py increases a unit's damage ability except
+         for "Transport" units (by default increase is 2)
    - modified gui.py to import powerup classes and functions
    - modified load_level function in gui.py so that power ups can be
-     loaded from maps (just like units)
+     loaded from maps if they exist in the map file
    - modified draw function in gui.py so that power ups are drawn to
      the map (just like units)
    - modified update function in gui.py so that if a unit intersects
-     a powerup after moving, the power up is used on the unit and
+     a power up after moving, the power up is used on the unit and
      deactivated
    - modified draw_bar function in gui.py so that a description of the
      power up is given on the right side of the screen when the mouse
@@ -43,12 +43,12 @@ TASK 2) Added a Power-Up System
        where X,Y are X and Y coordinates for the power up
 
 TASK 3)
-    -only the gather.py was modified
-    -changed the gather function to find the optimal value for
-    a given transporter weight
-    -the function is a recursive function that uses our in-class
-    memoize function decorator and was inspired from an implementation
-    of the knapsack problem (in particular: http://codereview.stackex
-    change.com/questions/20569/dynamic-programming-solution-to-knapsa
-    ck-problem ). Yhe solution is O(C*n) [C=capicity and n = # of
-    units]
+    - only the gather.py was modified
+    - changed the gather function to find the optimal value for
+      a given transporter weight
+    - the function is a recursive function that uses our in-class
+      memoize function decorator and was inspired from an implementation
+      of the knapsack problem (in particular: http://codereview.stackex
+      change.com/questions/20569/dynamic-programming-solution-to-knapsa
+      ck-problem ). The solution is O(C*n) [C = capacity and n = # of
+      units]
