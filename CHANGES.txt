@@ -1,3 +1,6 @@
+AUTHORS
+    Kalvin Eng and Nicholas Westbury
+
 PURPOSE
     This file outlines the changes made from the base eClass Tactics
     War Game in accordance with assignment #2.
