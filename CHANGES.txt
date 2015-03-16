@@ -29,8 +29,8 @@ TASK 2) Added a Power-Up System
    - modified draw function in gui.py so that power ups are drawn to
      the map (just like units)
    - modified update function in gui.py so that if a unit intersects
-     a power up after moving, the power up is used on the unit and
-     deactivated
+     a power up after moving, the power up is used on the unit (stopping
+      the unit) and deactivated
    - modified draw_bar function in gui.py so that a description of the
      power up is given on the right side of the screen when the mouse
      hovers over it
